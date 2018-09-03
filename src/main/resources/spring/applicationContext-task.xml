@@ -12,9 +12,9 @@
 	<!-- 启用定时任务 -->
 	<task:scheduled-tasks>
 		<!--每5分钟执行一次-->
-		<task:scheduled ref="BusinessTask" method="synNumberAndPrice" cron="0 */5 * * * ?"/>
+		<task:scheduled ref="BusinessTask" method="synNumberAndPrice" cron="0 0 2 * * ?"/>
 		<!--每5分钟执行一次-->
-		<task:scheduled ref="BusinessTask" method="synStarAndComment" cron="0 */5 * * * ?"/>
+		<task:scheduled ref="BusinessTask" method="synStarAndComment" cron="0 0 2 * * ?"/>
 	</task:scheduled-tasks>
 
 

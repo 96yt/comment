@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE configuration>
 <configuration>
-	<property resource="properties/logback.properties" />
+	<property resource="properties/logback.properties"/>
+
 	<!--控制台输出 -->
 	<appender name="stdout" class="ch.qos.logback.core.ConsoleAppender">
 		<encoder>
