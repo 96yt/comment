@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Description:
+ * Description:session拦截器
  *
  * @author:Tong
  */
@@ -19,12 +19,13 @@ public class SessionInterceptor implements HandlerInterceptor {
      * @param request
      * @param response
      * @param o
-     * @return true:执行下一个拦截器，知道所有拦截器都执行完，再执行被拦截的Controller
-     *          false：从当前拦截器往回执行所有拦截器的afterCompletion（），再退出拦截器
+     * @return  true : 执行下一个拦截器，直到所有拦截器都执行完，再执行被拦截的Controller;
+     *          false：从当前拦截器往回执行所有拦截器的afterCompletion()，再退出拦截器链.
      * @throws Exception
      */
     @Override
-    public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object o) throws Exception {
+    public boolean preHandle(HttpServletRequest request,
+                             HttpServletResponse response, Object o) throws Exception {
 
         if (request.getSession().getAttribute(SessionKeyConst.USER_INFO) != null) {
             return true;

@@ -13,6 +13,7 @@
 	<!-- 允许对静态资源文件的访问 -->
 	<mvc:default-servlet-handler/>
 
+	<!--拦截器-->
 	<mvc:interceptors>
 		<mvc:interceptor>
 			<!--拦截所有请求路径-->
