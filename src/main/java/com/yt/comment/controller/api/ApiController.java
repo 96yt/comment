@@ -133,7 +133,7 @@ public class ApiController {
             //3、根据提交上来的订单Id获取对应的会员ID，校验与当前登录的会员是否一致
             OrdersDto ordersDto = ordersService.getById(dto.getId());
             if (ordersDto.getMemberId().equals(memberId)) {
-                //保存评论
+                //4、保存评论
                 commentService.add(dto);
                 result = new ApiCodeDto(ApiCodeEnum.SUCCESS);
             } else {
@@ -157,7 +157,7 @@ public class ApiController {
         if (memberService.exists(username)) {
             //2.生成6位随机数
             String code = String.valueOf(CommonUtil.random(6));
-            //3、保存手机号与对应的md5（6位随机数）
+            //3、保存手机号与对应的md5（6位随机数）(一般保存一分钟)
             if (memberService.saveCode(username,code)) {
                 if (memberService.sendCode(username,code)) {
                     apiCodeDto = new ApiCodeDto(ApiCodeEnum.SUCCESS,code);
@@ -194,7 +194,7 @@ public class ApiController {
             if (saveCode.equals(code)) {
                 //3 如果校验通过，生成一个32位的token
                 String token = CommonUtil.getUUID();
-                //4.保存手机号与对应的token
+                //4.保存手机号与对应的token(一般这个手机中途没有与服务端交互的情况下，保持10分钟)
                 memberService.saveToken(token,username);
                 //5 token返回给前端
                 apiCodeDto = new ApiCodeDto(ApiCodeEnum.SUCCESS);
@@ -204,6 +204,7 @@ public class ApiController {
                 apiCodeDto = new ApiCodeDto(ApiCodeEnum.CODE_ERROR);
             }
         } else {
+            //验证码失效
             apiCodeDto = new ApiCodeDto(ApiCodeEnum.CODE_INVALID);
         }
         return apiCodeDto;

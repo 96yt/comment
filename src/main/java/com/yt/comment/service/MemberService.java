@@ -1,10 +1,6 @@
 package com.yt.comment.service;
 
-/**
- * Description:
- *
- * @author:Tong
- */
+
 public interface MemberService {
 
     /**

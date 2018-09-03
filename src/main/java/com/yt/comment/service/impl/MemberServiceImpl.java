@@ -14,7 +14,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 /**
- * Description:
+ * Description:会员业务接口
  *
  * @author:Tong
  */
@@ -44,7 +44,7 @@ public class MemberServiceImpl implements MemberService {
     @Override
     public boolean sendCode(Long phone, String content) {
         //TODO  在真实环境中，改成借助第三方实现
-        logger.info(phone + "|" + content);
+        logger.info(phone + "code:" + content);
         return true;
     }
 

@@ -5,7 +5,7 @@ import com.yt.comment.entity.Member;
 import java.util.List;
 
 /**
- * Description:
+ * Description:会员数据接口
  *
  * @author:Tong
  */

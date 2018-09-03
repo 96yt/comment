@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import javax.servlet.http.HttpServletRequest;
 
 /**
- * Description:
+ * Description:广告控制层
  *
  * @author:Tong
  */

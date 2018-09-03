@@ -1,7 +1,7 @@
 package com.yt.comment.constant;
 
 /**
- * Description:
+ * Description:接口状态码枚举
  *
  * @author:Tong
  */
