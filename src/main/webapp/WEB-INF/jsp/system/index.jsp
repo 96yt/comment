@@ -105,7 +105,7 @@
 		        </table>
 		    </div>
 		    <div id="footer">
-		        <div class="copyright">管理后台</div>
+		        <div class="copyright">后台管理</div>
 		        <div class="flr">copyright &copy;</div>
 		    </div>
 		</form>

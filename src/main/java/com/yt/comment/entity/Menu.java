@@ -3,7 +3,7 @@ package com.yt.comment.entity;
 import java.util.List;
 
 /**
- * Description:
+ * Description:菜单实体
  *
  * @author:Tong
  */
@@ -12,8 +12,8 @@ public class Menu {
     private Long id;
     private String name;
     private String url;
-    private Long parentId;
-    private Integer orderNum;
+    private Long parentId;//父菜单ID
+    private Integer orderNum;//排序数字
 
     private List<Action> actionList;
 

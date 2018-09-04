@@ -5,7 +5,7 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import java.util.List;
 
 /**
- * Description:
+ * Description:用户组
  *
  * @author:Tong
  */
