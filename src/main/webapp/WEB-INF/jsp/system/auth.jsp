@@ -44,8 +44,12 @@
 	                            </td>
 	                        </tr>
 	                        <tr class="line">
-	                            <td class="left"><label>密码：</label></td>
-	                            <td>默认密码与用户名相同。<font color="red">请创建后立刻登录修改默认密码！</font></td>
+								<td class="left"><em class="required">*</em><label>密码：</label> </td>
+								<td>
+									<input type="text" class="normal-input" name="password" id="password" style="width: 240px;"/>
+								</td>
+	                            <%--<td class="left"><label>密码：</label></td>--%>
+	                            <%--<td>默认密码与用户名相同。<font color="red">请创建后立刻登录修改默认密码！</font></td>--%>
 	                        </tr>
 	                        <tr>
 	                            <td class="left"></td>

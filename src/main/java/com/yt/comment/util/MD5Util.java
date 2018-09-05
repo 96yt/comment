@@ -12,7 +12,8 @@ import java.security.MessageDigest;
  * @author:Tong
  */
 public class MD5Util {
-    private static final char DIGITS[] = {'0','1','2','3','4','5','6','7','8','9'};
+    private static final char DIGITS[] = {'0','1','2','3','4','5','6','7','8','9',
+    'a','b','c','d','e','f'};
 
     /**
      * 获取文件的MD5码
@@ -25,7 +26,8 @@ public class MD5Util {
             MessageDigest mdTemp = MessageDigest.getInstance("MD5");
             FileInputStream fis = new FileInputStream(file);
             FileChannel fileChannel = fis.getChannel();
-            MappedByteBuffer mbb = fileChannel.map(FileChannel.MapMode.READ_ONLY,0,file.length());
+            MappedByteBuffer mbb = fileChannel
+                    .map(FileChannel.MapMode.READ_ONLY,0,file.length());
             mdTemp.update(mbb);
             byte[] md = mdTemp.digest();
             int j = md.length;
@@ -44,7 +46,7 @@ public class MD5Util {
     }
 
     public final static String getMD5(String s) {
-        char hexDigits[] = {'0','1','2','3','4','5','6','7','8','9'};
+        char hexDigits[] = {'0','1','2','3','4','5','6','7','8','9','a','b','c','d','e','f'};
         try {
             byte[] strTemp = s.getBytes();
             MessageDigest mdTemp = MessageDigest.getInstance("MD5");

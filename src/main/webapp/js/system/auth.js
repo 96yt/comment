@@ -272,7 +272,7 @@ function saveUser() {
 				data : {
 					"name" : $("#userName").val(),
 					"chName" : $("#chName").val(),
-					"password" : $("#userName").val()
+					"password" : $("#password").val()
 				}
 			});
 		}
