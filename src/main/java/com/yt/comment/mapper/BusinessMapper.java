@@ -6,17 +6,22 @@ import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * Description:
+ *
+ * @author:Tong
+ */
 public interface BusinessMapper {
 
     /**
-     *  根据查询条件分页查询商户列表
+     * 根据查询条件分页查询商户列表
      * @param business 查询条件
      * @return 商户列表
      */
     List<Business> selectByPage(Business business);
 
     /**
-     *  根据主键查询商户
+     * 根据主键查询商户
      * @param id 主键
      * @return 商户对象
      */
@@ -44,22 +49,21 @@ public interface BusinessMapper {
     int update(Business business);
 
     /**
-     *  根据查询条件分页查询商户列表 :
-     *  标题、副标题、描述三个过滤条件为模糊查询
+     * 根据查询条件分页查询商户列表
      * @param business 查询条件
      * @return 商户列表
      */
     List<Business> selectLikeByPage(Business business);
 
     /**
-     * 更新用户总星数量和总评论数
+     * 更新用户总星数和总评论数
      * @param timestamp
-     * @return 影响行数
+     * @return
      */
     int updateStarAndComment(Map<String,Date> timestamp);
 
     /**
-     * 更新商户总价格和总销量
+     * 更新用户总价格和总销量
      * @param timestamp
      * @return
      */
