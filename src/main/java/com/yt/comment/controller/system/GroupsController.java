@@ -20,7 +20,7 @@ import java.util.List;
  * @author:Tong
  */
 @RestController
-@RequestMapping("/group")
+@RequestMapping("/groups")
 public class GroupsController {
 
     private static final Logger log = LoggerFactory.getLogger(GroupsController.class);

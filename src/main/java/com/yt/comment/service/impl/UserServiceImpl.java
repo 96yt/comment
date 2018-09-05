@@ -91,7 +91,7 @@ public class UserServiceImpl implements UserService {
     public UserDto getById(Long id) {
         UserDto userDto = new UserDto();
         User user = userMapper.selectById(id);
-        BeanUtils.copyProperties(user,userDto);
+        BeanUtils.copyProperties(user, userDto);
         return userDto;
     }
 

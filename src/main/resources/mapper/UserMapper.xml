@@ -7,7 +7,7 @@
 <mapper namespace="com.yt.comment.mapper.UserMapper">
 
 	<select id="select" resultType="User">
-		select id,ch_name,`name`,group_id from sys_user t
+		SELECT id,ch_name,`name`,group_id FROM sys_user t
 		<where>
 			<if test="name != null">
 				and t.name = #{name}
@@ -23,17 +23,17 @@
 	</select>
 
 	<select id="selectById" resultType="User">
-		SELECT id,ch_name,name,group_id FROM sys_user WHERE id = #{_parameter}
+		SELECT id,ch_name,`name`,group_id FROM sys_user WHERE id = #{_parameter}
 	</select>
 
 	<insert id="insert">
-		insert into sys_user(`name`,ch_name,`password`)
-		select #{name},#{chName},#{password} from dual
-		where not exists(select 1 from sys_user where name=#{name})
+		INSERT INTO sys_user(`name`,ch_name,`password`)
+		SELECT #{name},#{chName},#{password} FROM dual
+		WHERE NOT EXISTS(select 1 from sys_user where name=#{name})
 	</insert>
 
 	<delete id="delete">
-		delete from sys_user where id=#{_parameter}
+		DELETE FROM sys_user WHERE id=#{_parameter}
 	</delete>
 
 	<update id="update">

@@ -36,7 +36,7 @@ public class UsersController {
         if (userService.add(userDto)) {
             result = new PageCodeDto(PageCodeEnum.ADD_SUCCESS);
         } else {
-            result = new PageCodeDto(PageCodeEnum.ADD_FAIL);
+            result = new PageCodeDto(PageCodeEnum.USERNAME_EXISTS);
         }
         return result;
     }
