@@ -7,14 +7,14 @@
 <mapper namespace="com.yt.comment.mapper.GroupMenuMapper">
 
 	<insert id="insertBatch">
-		insert into sys_group_menu(group_id,menu_id) values
+		INSERT INTO sys_group_menu(group_id,menu_id) VALUES
 		<foreach collection="list" item="groupMenu" separator=",">
 			(#{groupMenu.groupId},#{groupMenu.menuId})
 		</foreach>
 	</insert>
 
 	<delete id="deleteByGroupId">
-		delete from sys_group_menu where group_id=#{_parameter}
+		DELETE FROM sys_group_menu WHERE group_id=#{_parameter}
 	</delete>
 	
 </mapper>

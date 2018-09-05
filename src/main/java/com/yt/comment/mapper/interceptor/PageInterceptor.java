@@ -1,6 +1,6 @@
 package com.yt.comment.mapper.interceptor;
 
-import com.yt.comment.entity.Base;
+import com.yt.comment.entity.BaseBean;
 import com.yt.comment.entity.Page;
 import org.apache.ibatis.executor.parameter.ParameterHandler;
 import org.apache.ibatis.executor.statement.StatementHandler;
@@ -17,9 +17,7 @@ import java.sql.ResultSet;
 import java.util.Properties;
 
 /**
- * Description:分页拦截器
- *
- * @author:Tong
+ * 分页拦截器
  */
 @Intercepts({@Signature(type= StatementHandler.class,method = "prepare",args = {Connection.class})})
 public class PageInterceptor implements Interceptor {
@@ -35,7 +33,7 @@ public class PageInterceptor implements Interceptor {
             BoundSql boundSql = statementHandler.getBoundSql();
             String sql = boundSql.getSql();
             //获取总记录数
-            Base bean = (Base) boundSql.getParameterObject();
+            BaseBean bean = (BaseBean) boundSql.getParameterObject();
             Page page = bean.getPage();
             // 没加别名t
             // 会报Every derived table must have its own alias错误

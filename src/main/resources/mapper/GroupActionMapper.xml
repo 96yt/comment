@@ -8,14 +8,15 @@
 
 
     <insert id="insertBatch">
-        insert into sys_group_action(group_id,action_id) values
+        INSERT INTO sys_group_action(group_id,action_id) VALUES
         <foreach collection="list" item="item" separator=",">
             (#{item.groupId},#{item.actionId})
         </foreach>
     </insert>
 
     <delete id="deleteByGroupId">
-        delete from sys_group_action where group_id=#{_parameter}
+        DELETE FROM sys_group_action WHERE group_id=#{_parameter}
     </delete>
+
 
 </mapper>

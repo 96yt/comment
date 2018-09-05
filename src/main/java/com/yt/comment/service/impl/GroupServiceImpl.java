@@ -80,14 +80,14 @@ public class GroupServiceImpl implements GroupService {
 
         Group group = groupMapper.selectMenuListById(id);
 
-        //格式化数据
+        // 格式化数据
         BeanUtils.copyProperties(group,result);
         List<Menu> menuList = group.getMenuList();
 
-        for (Menu menu : menuList) {
-            MenuDto menuDtoTemp = new MenuDto();
-            menuDtoList.add(menuDtoTemp);
-            BeanUtils.copyProperties(menu,menuDtoTemp);
+        for (Menu menu:menuList) {
+            MenuDto menuDtoTenmp = new MenuDto();
+            menuDtoList.add(menuDtoTenmp);
+            BeanUtils.copyProperties(menu,menuDtoTenmp);
         }
         result.setMenuList(null);
         return result;
@@ -96,16 +96,17 @@ public class GroupServiceImpl implements GroupService {
     @Override
     @Transactional
     public boolean assignMenu(GroupDto groupDto) {
-        //1、清空用户组和菜单、动作的关联动作
+
+        //1 清空用户组和菜单、动作的关联关系
         groupMenuMapper.deleteByGroupId(groupDto.getId());
         groupActionMapper.deleteByGroupId(groupDto.getId());
-        //2、新增用户组和菜单的关联关系
-        if (groupDto.getMenuIdList() != null && groupDto.getMenuIdList().size() > 0) {
-            //准备好批量新增的原料
+        //2 新增用户组和菜单的关联关系
+        if (groupDto.getMenuIdList() != null && groupDto.getMenuIdList().size() > 0){
+            // 准备好批量新增的原料
             List<GroupMenu> list = new ArrayList<>();
             Long groupId = groupDto.getId();
-            for (Long menuId : groupDto.getMenuIdList()) {
-                if (menuId != null) {
+            for(Long menuId : groupDto.getMenuIdList()) {
+                if(menuId != null) {
                     GroupMenu groupMenu = new GroupMenu();
                     list.add(groupMenu);
                     groupMenu.setGroupId(groupId);
@@ -114,10 +115,11 @@ public class GroupServiceImpl implements GroupService {
             }
             groupMenuMapper.insertBatch(list);
         }
-        if (groupDto.getActionIdList() != null && groupDto.getActionIdList().size() > 0) {
+        // 保存为用户组分配的动作
+        if(groupDto.getActionIdList() != null && groupDto.getActionIdList().size() > 0) {
             List<GroupAction> list = new ArrayList<>();
-            for (Long actionId : groupDto.getActionIdList()) {
-                if (actionId != null) {
+            for(Long actionId : groupDto.getActionIdList()) {
+                if(actionId != null) {
                     GroupAction groupAction = new GroupAction();
                     groupAction.setGroupId(groupDto.getId());
                     groupAction.setActionId(actionId);
@@ -128,6 +130,7 @@ public class GroupServiceImpl implements GroupService {
         }
         return true;
     }
+
 
     @Override
     public GroupDto getByIdWithMenuAction(Long id) {
